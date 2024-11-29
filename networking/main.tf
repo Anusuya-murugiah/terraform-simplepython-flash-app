@@ -47,7 +47,7 @@ resource "aws_internet_gateway" "dev_pro1_internet_gateway" {
   }
 }
 
-/*#setup the public route table 
+#setup the public route table 
 resource "aws_route_table" "dev_pro1_public_route_table" {
   vpc_id = aws_vpc.dev_pro1_eu_west.id
   route = {
@@ -59,20 +59,20 @@ resource "aws_route_table" "dev_pro1_public_route_table" {
   }
 }
 
-#setup public route table association
-resource "aws_route_table_association" "dev_pro1_public_route_table_asso" {
-    vpc_id = aws_vpc.dev_pro1_eu_west.id
-    count = length(aws_subnet.dev_pro1_public_subnet)
-    route_table_id = aws_route_table.dev_pro1_public_route_table.id
-    subnet_id = aws_subnet.dev_pro1_public_subnet[count.index].id
-}
-
 #setup the private route table
 resource "aws_route_table" "dev_pro1_private_route_table"  {
   vpc_id = aws_vpc.dev_pro1_eu_west.id
    tags = {
     Name = dev-pro1-private-route-table
   }
+}
+
+/*#setup public route table association
+resource "aws_route_table_association" "dev_pro1_public_route_table_asso" {
+    vpc_id = aws_vpc.dev_pro1_eu_west.id
+    count = length(aws_subnet.dev_pro1_public_subnet)
+    route_table_id = aws_route_table.dev_pro1_public_route_table.id
+    subnet_id = aws_subnet.dev_pro1_public_subnet[count.index].id
 }
 
 #setup the public table association
