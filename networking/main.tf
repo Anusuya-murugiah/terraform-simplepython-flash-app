@@ -29,7 +29,7 @@ resource "aws_subnet" "dev_pro1_private_subnet" {
   vpc_id = aws_vpc.dev_pro1_eu_west.id
 
   tags = {
-    Name = "dev-pro1-private-subnet-$(count.index + 1)
+    Name = "dev-pro1-private-subnet-$(count.index + 1)"
   }
 }
 
