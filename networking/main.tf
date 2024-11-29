@@ -55,7 +55,7 @@ resource "aws_route_table" "dev_pro1_public_route_table" {
     gateway_id =  aws_internet_gateway.dev_pro1_internet_gateway.id
   }
   tags = {
-    Name = dev-pro1-public-route-table
+    Name = "dev-pro1-public-route-table"
   }
 }
 
@@ -63,7 +63,7 @@ resource "aws_route_table" "dev_pro1_public_route_table" {
 resource "aws_route_table" "dev_pro1_private_route_table"  {
   vpc_id = aws_vpc.dev_pro1_eu_west.id
    tags = {
-    Name = dev-pro1-private-route-table
+    Name = "dev-pro1-private-route-table"
   }
 }
 
