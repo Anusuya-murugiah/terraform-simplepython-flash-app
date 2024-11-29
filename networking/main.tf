@@ -33,7 +33,7 @@ resource "aws_subnet" "dev_pro1_private_subnet" {
   }
 }
 
-#setup the internet gateway
+/*#setup the internet gateway
 resource "aws_internet_gateway" "dev_pro1_internet_gateway" {
   vpc_id = aws_vpc.dev_pro1_eu_west.id
   tags = {
@@ -74,7 +74,7 @@ resource "aws_route_table_association" "dev_pro1_private_table_asso" {
   count = length(aws_subnet.dev_pro1_private_subnet)
   subnet_id = aws_subnet.dev_pro1_private_subnet[count.index].id
   route_table_id = aws_route_table.dev_pro1_private_route_table.id
-}
+}*\
 
 
 
