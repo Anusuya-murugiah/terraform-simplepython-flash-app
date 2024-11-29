@@ -55,11 +55,10 @@ resource "aws_route_table" "dev_pro1_public_route_table" {
 
 #setup public route table association
 resource "aws_route_table_association" "dev_pro1_public_route_table_asso" {
-  {
     vpc_id = aws_vpc.dev_pro1_eu_west.id
     count = length(aws_subnet.dev_pro1_public_subnet)
     route_table_id = aws_route_table.dev_pro1_public_route_table.id
-    subnet_id = aws_subnet.dev_pro1_public_subnet$(count.index).id
+    subnet_id = aws_subnet.dev_pro1_public_subnet$[count.index].id
 }
 
 #setup the private route table
@@ -73,7 +72,7 @@ resource "aws_route_table" "dev_pro1_private_route_table"  {
 #setup the public table association
 resource "aws_route_table_association" "dev_pro1_private_table_asso" {
   count = length(aws_subnet.dev_pro1_private_subnet)
-  subnet_id = aws_subnet.dev_pro1_private_subnet$(count.index).id
+  subnet_id = aws_subnet.dev_pro1_private_subnet$[count.index].id
   route_table_id = aws_route_table.dev_pro1_private_route_table.id
 }
 
