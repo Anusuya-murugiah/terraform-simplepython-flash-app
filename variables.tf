@@ -26,3 +26,4 @@ variable "eu_availability_zone"  {
 
 
 
+
