@@ -6,3 +6,9 @@ module "networking" {
    cidr_private_subnet = var.cidr_private_subnet 
    eu_availability_zone = var.eu_availability_zone
 }
+
+module "security_groups" {
+}
+
+  
+   
