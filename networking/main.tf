@@ -4,6 +4,10 @@ variable "cidr_public_subnet" {}
 variable "cidr_private_subnet" {}
 variable "eu_availability_zone" {}
 
+output "dev_pro1_vpc_id" {
+  value = "aws_vpc.dev_pro1_eu_west.id"
+}
+
 #setup the vpc
 resource "aws_vpc" "dev_pro1_eu_west" {
   cidr_block = var.cidr_block
