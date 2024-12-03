@@ -8,6 +8,9 @@ module "networking" {
 }
 
 module "security_groups" {
+  source = "./security_groups"
+  vpc_id = module.networking.dev_pro1_vpc_id
+ 
 }
 
   
