@@ -2,6 +2,14 @@ variable "vpc_id" {}
 variable "sg" {}
 variable "sg_jenkins" {}
 
+output "sg_ssh_http_id" {
+  value = aws_resource_group.ec2-ssh-http.id
+}
+
+output "sg_jenkins" {
+  value = aws_security_groups.ec2-jenkins.id
+}
+
 resource "aws_resource_group" "ec2-ssh-http" {
   name = var.sg
   description = "enable port for SSH(22) and HTTP(80)"
