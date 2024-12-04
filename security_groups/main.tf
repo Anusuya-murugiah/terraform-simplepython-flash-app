@@ -3,20 +3,20 @@ variable "sg" {}
 variable "sg_jenkins" {}
 
 output "sg_ssh_http_id" {
-  value = aws_resource_group.ec2-ssh-http.id
+  value = aws_security_group.ec2-ssh-http.id
 }
 
 output "sg_jenkins" {
-  value = aws_security_groups.ec2-jenkins.id
+  value = aws_security_group.ec2-jenkins.id
 }
 
-resource "aws_resource_group" "ec2-ssh-http" {
+resource "aws_security_group" "ec2-ssh-http" {
   name = var.sg
   description = "enable port for SSH(22) and HTTP(80)"
   vpc_id = var.vpc_id
 
   ingress {
-    cidr_block = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]
     description = "enable 22 port for SSH"
     from_port = 22
     ip_protocol = "tcp"
@@ -24,7 +24,7 @@ resource "aws_resource_group" "ec2-ssh-http" {
    }
 
    ingress {
-     cidr_block = ["0.0.0.0/0"]
+     cidr_blocks = ["0.0.0.0/0"]
      description = "enable 80 port for HTTP"
      from_port = 80
      ip_protocol = "tcp"
@@ -52,7 +52,7 @@ resource "aws_resource_group" "ec2-ssh-http" {
   }
 }
 
-resource "aws_security_groups" "ec2-jenkins" { 
+resource "aws_security_group" "ec2-jenkins" { 
   vpc_id = var.vpc_id
   description = "allow jenkins port"
   name = var.sg_jenkins
