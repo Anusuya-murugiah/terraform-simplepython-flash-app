@@ -15,6 +15,12 @@ module "security_groups" {
 }
 
 module "jenkins" {
+  source = "./jenkins"
+  ami_id = var.ami_id
+  instance_type = "t2.micro"
+  tag_name = "Jenkins:Ubuntu Linux EC2"
+  subnet_id = "
+  
 }
   
    
