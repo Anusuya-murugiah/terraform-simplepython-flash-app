@@ -10,7 +10,8 @@ module "networking" {
 module "security_groups" {
   source = "./security_groups"
   vpc_id = module.networking.dev_pro1_vpc_id
- 
+  sg = "SG for EC2 to enable SSH(22), HTTPS(443) and HTTP(80)"
+  sg_jenkins = "Allow port 8080 for jenkins"
 }
 
   
