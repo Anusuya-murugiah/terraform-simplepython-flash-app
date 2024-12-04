@@ -1,6 +1,6 @@
 variable "vpc_id" {}
 
-resource "aws_resource_group" {
+resource "aws_resource_group" "ec2-ssh-http" {
   name = var.security_group
   description = "enable port for SSH(22) and HTTP(80)"
   vpc_id = "var.vpc_id"
@@ -41,4 +41,22 @@ resource "aws_resource_group" {
     Name = "security group for SSH, HTTP and HTTPS"
   }
 }
+
+resource "aws_security_groups" "ec2-jenkins" { 
+  vpc_id = var.vpc_id
+  description = "allow jenkins port"
+  name = var.sg_jenkins
+
+  ingress {
+    from_port = 8080
+    ip_protocol = "tcp"
+    to_port = 8080
+    description = "allow jenkins port"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+ } 
+
+
+
 
