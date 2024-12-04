@@ -1,7 +1,7 @@
 variable "vpc_id" {}
 
 resource "aws_resource_group" "ec2-ssh-http" {
-  name = var.security_group
+  name = var.sg
   description = "enable port for SSH(22) and HTTP(80)"
   vpc_id = "var.vpc_id"
 
