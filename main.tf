@@ -14,5 +14,7 @@ module "security_groups" {
   sg_jenkins = "Allow port 8080 for jenkins"
 }
 
+module "jenkins" {
+}
   
    
