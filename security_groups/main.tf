@@ -13,7 +13,7 @@ output "sg_jenkins" {
 resource "aws_resource_group" "ec2-ssh-http" {
   name = var.sg
   description = "enable port for SSH(22) and HTTP(80)"
-  vpc_id = "var.vpc_id"
+  vpc_id = var.vpc_id
 
   ingress {
     cidr_block = ["0.0.0.0/0"]
