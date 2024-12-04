@@ -1,4 +1,6 @@
 variable "vpc_id" {}
+variable "sg" {}
+variable "sg_jenkins" {}
 
 resource "aws_resource_group" "ec2-ssh-http" {
   name = var.sg
