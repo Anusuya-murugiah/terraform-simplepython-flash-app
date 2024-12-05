@@ -20,7 +20,8 @@ resource "aws_lb_target_group" "tg" {
 
 resource "aws_lb_target_group_attachment" "lga" {
   target_group_arn = tg_arn
-  tg_instance = 
+  tg_instance = var.tg_instance
+  port = var.tg_port
 }
   
   
