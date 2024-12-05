@@ -24,5 +24,10 @@ module "jenkins" {
   associate_public_key_id = true
   user_data = templatefile("./jenkins_runner_script/jenkins_installer.sh", {})
 }
+
+module  "target_group" {
+  source = "./target-group"
+  
+}
   
    
