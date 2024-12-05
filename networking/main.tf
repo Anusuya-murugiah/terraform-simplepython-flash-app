@@ -5,11 +5,11 @@ variable "cidr_private_subnet" {}
 variable "eu_availability_zone" {}
 
 output "dev_pro1_vpc_id" {
-  value = "aws_vpc.dev_pro1_eu_west.id"
+  value = aws_vpc.dev_pro1_eu_west.id
 }
 
 output "dev_proj1_public_subnet" {
-  value = "aws_subnet.dev_pro1_public_subnet.*.id
+  value = aws_subnet.dev_pro1_public_subnet[0].id
 }
 
 #setup the vpc
