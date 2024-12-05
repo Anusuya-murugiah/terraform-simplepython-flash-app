@@ -46,7 +46,7 @@ module "load_balancer" {
   lb_target_group_attachment_port = 8080
   lb_listener_protocol = "HTTP"
   lb_listener_port = 80
-  
+  listener_tg_arn = module.target_group.tg_arn
   
   
 } 
