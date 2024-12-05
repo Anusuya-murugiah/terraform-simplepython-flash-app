@@ -32,7 +32,7 @@ module  "target_group" {
   tg_vpc_id = module.networking.dev_pro1_vpc_id
   tg_protocol = "HTTP"
   tg_port = 8080
-  tg_instance = module.jenkins.local_host_id
+  target_id = module.jenkins.local_host_id
 }
 
 module "load_balancer" {
