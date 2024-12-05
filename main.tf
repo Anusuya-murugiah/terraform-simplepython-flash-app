@@ -26,7 +26,7 @@ module "jenkins" {
 }
 
 module  "target_group" {
-  source = "./target-group"
+  source = "./target_group"
   tg_name = "dev-pro1-alb"
   tg_vpc_id = module.networking.dev_pro1_vpc_id
   tg_protocol = "HTTP"
