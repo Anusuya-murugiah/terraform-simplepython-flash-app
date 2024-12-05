@@ -27,7 +27,7 @@ module "jenkins" {
 
 module  "target_group" {
   source = "./target-group"
-  tg_name = "dev-pro1"
+  tg_name = "dev-pro1-alb"
   tg_vpc_id = 
   tg_protocol = "HTTP"
   tg_port = "80"
