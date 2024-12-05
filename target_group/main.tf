@@ -1,8 +1,8 @@
 variable tg_name {}
 variable tg_protocol {}
 variable tg_port {}
-variable tg_variable {}
-variable tg_instance_id {}
+variable target_id {}
+variable tg_vpc_id {}
 
 output "tg_arn" {
   value = aws_lb_target_group.tg.arn
