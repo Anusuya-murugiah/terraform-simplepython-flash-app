@@ -19,8 +19,10 @@ module "jenkins" {
   ami_id = var.ami_id
   instance_type = "t2.micro"
   tag_name = "Jenkins:Ubuntu Linux EC2"
-  subnet_id = "
-  
+  subnet_id = tolist(module.networking.dev_proj1_public_subnet)[0]
+  vpc_security_group_ids = [module.security_groups.sg_ssh_http_id, module.security_groups.sg_jenkins]
+  associate_public_key_id = true
+  user_data = templatefile("./jenkins_runner_script/jenkins_installer.sh", {})
 }
   
    
