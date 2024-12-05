@@ -33,5 +33,10 @@ module  "target_group" {
   tg_port = 8080
   tg_instance = module.jenkins.local_host_id
 }
+
+module "load_balancer" {
+  source = "./load_balancer"
   
+  
+} 
    
