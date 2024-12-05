@@ -8,6 +8,10 @@ output "dev_pro1_vpc_id" {
   value = "aws_vpc.dev_pro1_eu_west.id"
 }
 
+output "dev_proj1_public_subnet" {
+  value = "aws_subnet.dev_pro1_public_subnet.*.id
+}
+
 #setup the vpc
 resource "aws_vpc" "dev_pro1_eu_west" {
   cidr_block = var.cidr_block
