@@ -39,8 +39,8 @@ module "load_balancer" {
   source = "./load_balancer"
   lb_name = "dev-pro1-lb"
   load_balancer_type = "application"
-  security_groups = [module.security_groups.sg_ssh_http_id, module.security_groups.sg_jenkins]
-  subnet_id = tolist(module.networking.dev_proj1_public_subnet)
+  lb_sg_ssh_http_id  = [module.security_groups.sg_ssh_http_id, module.security_groups.sg_jenkins]
+  lb_subnet_ids = tolist(module.networking.dev_proj1_public_subnet)
   lb_target_group_arn = module.target_group.tg_arn
   lb_target_id = module.jenkins.local_host_id
   lb_target_group_attachment_port = 8080
