@@ -21,7 +21,7 @@ module "jenkins" {
   tag_name = "Jenkins:Ubuntu Linux EC2"
   subnet_id = tolist(module.networking.dev_proj1_public_subnet)[0]
   vpc_security_group_ids = [module.security_groups.sg_ssh_http_id, module.security_groups.sg_jenkins]
-  associate_public_key_id = true
+  associate_public_ip_address = true
   public_key = var.public_key
   user_data = templatefile("./jenkins_runner_script/jenkins_installer.sh", {})
 }
