@@ -28,7 +28,7 @@ resource "aws_lb_target_group" "tg" {
 }  
 
 resource "aws_lb_target_group_attachment" "lga" {
-  target_group_arn = tg_arn
+  target_group_arn = aws_lb_target_group.tg.arn
   target_id = var.target_id
   port = 8080
 }
