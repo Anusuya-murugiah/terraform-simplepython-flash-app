@@ -11,9 +11,9 @@ output "tg_arn" {
 
 resource "aws_lb_target_group" "tg" {
   name = var.tg_name
-  tg_protocol = var.tg_protocol
-  tg_port = var.tg_port
-  tg_vpc_id = var.tg_vpc_id
+  protocol = var.tg_protocol
+  port = var.tg_port
+  vpc_id = var.tg_vpc_id
 
   health_check {
     path = "/login"
