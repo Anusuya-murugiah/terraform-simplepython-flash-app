@@ -19,7 +19,7 @@ resource "aws_security_group" "ec2-ssh-http" {
     cidr_blocks = ["0.0.0.0/0"]
     description = "enable 22 port for SSH"
     from_port = 22
-    ip_protocol = "tcp"
+    protocol = "tcp"
     to_port  = 22
    }
 
@@ -27,7 +27,7 @@ resource "aws_security_group" "ec2-ssh-http" {
      cidr_blocks = ["0.0.0.0/0"]
      description = "enable 80 port for HTTP"
      from_port = 80
-     ip_protocol = "tcp"
+     protocol = "tcp"
      to_port = 80
    }
 
@@ -35,7 +35,7 @@ resource "aws_security_group" "ec2-ssh-http" {
      cidr_blocks = ["0.0.0.0/0"]
      description = "enable 443 port for HTTPS"
      from_port = 443
-     ip_protocol = "tcp"
+     protocol = "tcp"
      to_port = 443
    }
 
@@ -43,7 +43,7 @@ resource "aws_security_group" "ec2-ssh-http" {
     cidr_blocks = ["0.0.0.0/0"]
     description = "open to internet"
     from_port = 0
-    ip_protocol = "-1"
+    protocol = "-1"
     to_port = 0
   }
 
@@ -59,7 +59,7 @@ resource "aws_security_group" "ec2-jenkins" {
 
   ingress {
     from_port = 8080
-    ip_protocol = "tcp"
+    protocol = "tcp"
     to_port = 8080
     description = "allow jenkins port"
     cidr_blocks = ["0.0.0.0/0"]
