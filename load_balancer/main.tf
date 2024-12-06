@@ -11,7 +11,7 @@ variable listener_tg_arn {}
 
 resource "aws_lb" "dev_pro1_lb" {
   name = var.lb_name
-  internal = flase
+  internal = false
   load_balancer_type = var.load_balancer_type
   security_groups = [var.lb_sg_ssh_http_id]
   subnet_id = var.lb_subnet_ids
