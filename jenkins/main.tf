@@ -3,7 +3,7 @@ variable instance_type {}
 variable tag_name {}
 variable subnet_id {}
 variable vpc_security_group_ids {}
-variable associate_public_key_id {}
+variable associate_public_ip_address {}
 variable user_data {}
 variable public_key {}
 
@@ -25,11 +25,11 @@ resource "aws_instance" "local_host" {
   key_name = "aws_ec2_instance"
   subnet_id = var.subnet_id
   vpc_security_group_ids = var.vpc_security_group_ids
-  associate_public_key_id = var.associate_public_key_id
+  associate_public_ip_address = var.associate_public_ip_address
 
   user_data = var.user_data
 
-  metadata_option {
+  metadata_options {
     http_endpoint = "enabled"
     http_tokens = "required"
   }
