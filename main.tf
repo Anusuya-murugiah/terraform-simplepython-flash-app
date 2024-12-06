@@ -14,7 +14,7 @@ module "security_groups" {
   sg_jenkins = "Allow port 8080 for jenkins"
 }
 
-/*module "jenkins" {
+module "jenkins" {
   source = "./jenkins"
   ami_id = var.ami_id
   instance_type = "t2.micro"
@@ -26,7 +26,7 @@ module "security_groups" {
   user_data = templatefile("./jenkins_runner_script/jenkins_installer.sh", {})
 }
 
-module  "target_group" {
+/*module  "target_group" {
   source = "./target_group"
   tg_name = "dev-pro1-alb"
   tg_vpc_id = module.networking.dev_pro1_vpc_id
