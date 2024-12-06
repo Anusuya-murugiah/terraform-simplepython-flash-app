@@ -14,7 +14,7 @@ resource "aws_lb" "dev_pro1_lb" {
   internal = false
   load_balancer_type = var.load_balancer_type
   security_groups = [var.lb_sg_ssh_http_id]
-  subnet_id = var.lb_subnet_ids
+  subnets = var.lb_subnet_ids
 
   tags = {
     Name = "dev-pro1-lb"
