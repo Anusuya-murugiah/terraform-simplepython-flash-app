@@ -26,7 +26,7 @@ module "jenkins" {
   user_data = templatefile("./jenkins_runner_script/jenkins_installer.sh", {})
 }
 
-/*module  "target_group" {
+module  "target_group" {
   source = "./target_group"
   tg_name = "dev-pro1-alb"
   tg_vpc_id = module.networking.dev_pro1_vpc_id
@@ -35,7 +35,7 @@ module "jenkins" {
   target_id = module.jenkins.local_host_id
 }
 
-module "load_balancer" {
+/*module "load_balancer" {
   source = "./load_balancer"
   lb_name = "dev-pro1-lb"
   load_balancer_type = "application"
