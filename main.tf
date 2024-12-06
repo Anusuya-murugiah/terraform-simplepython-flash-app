@@ -20,7 +20,7 @@ module "jenkins" {
   instance_type = "t2.micro"
   tag_name = "Jenkins:Ubuntu Linux EC2"
   subnet_id = module.networking.dev_proj1_public_subnet[0]
-  vpc_security_group_ids = module.security_groups.sg_ssh_http_id
+  vpc_security_group_ids = [module.security_groups.sg_ssh_http_id, module.security_groups.sg_jenkins]
   associate_public_ip_address = true
   public_key = var.public_key
   user_data = templatefile("./jenkins_runner_script/jenkins_installer.sh", {})
@@ -39,7 +39,7 @@ module "load_balancer" {
   source = "./load_balancer"
   lb_name = "dev-pro1-lb"
   load_balancer_type = "application"
-  lb_sg_ssh_http_id  = [module.security_groups.sg_ssh_http_id, module.security_groups.sg_jenkins]
+  lb_sg_ssh_http_id  = module.security_groups.sg_ssh_http_id
   lb_subnet_ids = tolist(module.networking.dev_proj1_public_subnet)
   lb_target_group_arn = module.target_group.tg_arn
   lb_target_id = module.jenkins.local_host_id
