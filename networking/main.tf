@@ -9,7 +9,7 @@ output "dev_pro1_vpc_id" {
 }
 
 output "dev_proj1_public_subnet" {
-  value = aws_subnet.dev_pro1_public_subnet[0].id
+  value = aws_subnet.dev_pro1_public_subnet[*].id
 }
 
 #setup the vpc
