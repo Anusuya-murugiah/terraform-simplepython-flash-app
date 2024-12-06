@@ -7,14 +7,14 @@ module "networking" {
    eu_availability_zone = var.eu_availability_zone
 }
 
-/*module "security_groups" {
+module "security_groups" {
   source = "./security_groups"
   vpc_id = module.networking.dev_pro1_vpc_id
   sg = "SG for EC2 to enable SSH(22), HTTPS(443) and HTTP(80)"
   sg_jenkins = "Allow port 8080 for jenkins"
 }
 
-module "jenkins" {
+/*module "jenkins" {
   source = "./jenkins"
   ami_id = var.ami_id
   instance_type = "t2.micro"
