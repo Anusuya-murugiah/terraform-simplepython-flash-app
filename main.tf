@@ -35,7 +35,7 @@ module  "target_group" {
   target_id = module.jenkins.local_host_id
 }
 
-/*module "load_balancer" {
+module "load_balancer" {
   source = "./load_balancer"
   lb_name = "dev-pro1-lb"
   load_balancer_type = "application"
@@ -47,7 +47,5 @@ module  "target_group" {
   lb_listener_protocol = "HTTP"
   lb_listener_port = 80
   listener_tg_arn = module.target_group.tg_arn
-  
-  
-} */
+} 
    
